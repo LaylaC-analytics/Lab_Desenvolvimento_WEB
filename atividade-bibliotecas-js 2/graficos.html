@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+<meta charset="UTF-8">
+<title>Gráficos</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+background:#ffe4f2;
+font-family:Arial;
+padding:20px;
+}
+
+h1{
+color:#d63384;
+text-align:center;
+}
+
+canvas{
+background:white;
+margin-bottom:50px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>📊 Gráficos</h1>
+
+<a href="index.html">⬅ Voltar</a>
+
+<h2>Média dos Alunos</h2>
+<canvas id="barra"></canvas>
+
+<h2>Notas por Bimestre</h2>
+<canvas id="linha"></canvas>
+
+<h2>Aprovados x Reprovados</h2>
+<canvas id="pizza"></canvas>
+
+<script>
+
+new Chart(document.getElementById('barra'),{
+type:'bar',
+data:{
+labels:['Pedro','João','Carla','Ana'],
+datasets:[{
+label:'Média',
+data:[5.9,6,4.8,3.1],
+backgroundColor:'hotpink'
+}]
+}
+});
+
+new Chart(document.getElementById('linha'),{
+type:'line',
+data:{
+labels:['1º','2º','3º','4º'],
+datasets:[
+{
+label:'Pedro',
+data:[1.3,9,8,5.2]
+},
+{
+label:'João',
+data:[3,7.4,4,9.5]
+},
+{
+label:'Carla',
+data:[6.9,0.9,5.3,5.9]
+},
+{
+label:'Ana',
+data:[0.5,0.9,7.7,3.2]
+}
+]
+}
+});
+
+new Chart(document.getElementById('pizza'),{
+type:'pie',
+data:{
+labels:['Aprovados','Reprovados'],
+datasets:[{
+data:[18,6],
+backgroundColor:['hotpink','purple']
+}]
+}
+});
+
+</script>
+
+</body>
+</html>

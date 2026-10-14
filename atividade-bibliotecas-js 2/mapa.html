@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+<meta charset="UTF-8">
+
+<title>Mapa de Mauá</title>
+
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+<style>
+
+body{
+background:#ffe4f2;
+font-family:Arial;
+padding:20px;
+}
+
+h1{
+color:#d63384;
+text-align:center;
+}
+
+#map{
+height:600px;
+border:5px solid hotpink;
+border-radius:15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🗺️ Mapa de Mauá</h1>
+
+<a href="index.html">⬅ Voltar</a>
+
+<br><br>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+
+var map = L.map('map').setView([-23.667,-46.461],13);
+
+L.tileLayer(
+'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+{
+attribution:'OpenStreetMap'
+}
+).addTo(map);
+
+L.marker([-23.668,-46.457])
+.addTo(map)
+.bindPopup("ETEC Mauá");
+
+L.marker([-23.668,-46.456])
+.addTo(map)
+.bindPopup("FATEC Mauá");
+
+L.marker([-23.670,-46.462])
+.addTo(map)
+.bindPopup("Prefeitura de Mauá");
+
+L.marker([-23.665,-46.455])
+.addTo(map)
+.bindPopup("Meu Trabalho");
+
+</script>
+
+</body>
+</html>
