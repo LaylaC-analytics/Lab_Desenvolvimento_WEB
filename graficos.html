@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gráficos - Bibliotecas JavaScript</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+    background: #ffe4f2;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1{
+    text-align: center;
+    color: #d63384;
+}
+
+h2{
+    color: #c2185b;
+    text-align: center;
+}
+
+.voltar{
+    display:inline-block;
+    background:#ff69b4;
+    color:white;
+    padding:10px 15px;
+    text-decoration:none;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+.voltar:hover{
+    background:#d63384;
+}
+
+.grafico{
+    width: 85%;
+    max-width: 700px;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,.1);
+}
+
+canvas{
+    max-height: 350px;
+}
+
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="voltar">⬅ Voltar ao Menu</a>
+
+<h1>📊 Gráficos da Atividade</h1>
+
+<div class="grafico">
+    <h2>Média dos Alunos</h2>
+    <canvas id="barra"></canvas>
+</div>
+
+<div class="grafico">
+    <h2>Notas por Bimestre</h2>
+    <canvas id="linha"></canvas>
+</div>
+
+<div class="grafico">
+    <h2>Aprovados x Reprovados</h2>
+    <canvas id="pizza"></canvas>
+</div>
+
+<script>
+
+// Gráfico de Barras
+new Chart(document.getElementById('barra'),{
+    type:'bar',
+    data:{
+        labels:['Pedro','João','Carla','Ana'],
+        datasets:[{
+            label:'Média',
+            data:[5.9,6.0,4.8,3.1],
+            backgroundColor:[
+                '#ff69b4',
+                '#ff1493',
+                '#db7093',
+                '#c71585'
+            ]
+        }]
+    }
+});
+
+// Gráfico de Linhas
+new Chart(document.getElementById('linha'),{
+    type:'line',
+    data:{
+        labels:['1º Bim','2º Bim','3º Bim','4º Bim'],
+        datasets:[
+        {
+            label:'Pedro',
+            data:[1.3,9.0,8.0,5.2],
+            borderColor:'#ff1493',
+            backgroundColor:'#ff1493',
+            tension:0.3
+        },
+        {
+            label:'João',
+            data:[3.0,7.4,4.0,9.5],
+            borderColor:'#8e44ad',
+            backgroundColor:'#8e44ad',
+            tension:0.3
+        },
+        {
+            label:'Carla',
+            data:[6.9,0.9,5.3,5.9],
+            borderColor:'#3498db',
+            backgroundColor:'#3498db',
+            tension:0.3
+        },
+        {
+            label:'Ana',
+            data:[0.5,0.9,7.7,3.2],
+            borderColor:'#2ecc71',
+            backgroundColor:'#2ecc71',
+            tension:0.3
+        }]
+    }
+});
+
+// Gráfico Pizza
+new Chart(document.getElementById('pizza'),{
+    type:'pie',
+    data:{
+        labels:['Aprovados','Reprovados'],
+        datasets:[{
+            data:[18,6],
+            backgroundColor:[
+                '#ff69b4',
+                '#8e44ad'
+            ]
+        }]
+    }
+});
+
+</script>
+
+</body>
+</html>

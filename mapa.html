@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mapa de Mauá</title>
+
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+<style>
+
+body{
+    background:#ffe4f2;
+    font-family:Arial, sans-serif;
+    padding:20px;
+}
+
+h1{
+    color:#d63384;
+    text-align:center;
+}
+
+.voltar{
+    background:#ff69b4;
+    color:white;
+    padding:10px 15px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.voltar:hover{
+    background:#d63384;
+}
+
+#map{
+    height:600px;
+    border:5px solid hotpink;
+    border-radius:15px;
+    margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🗺️ Mapa de Mauá</h1>
+
+<a href="index.html" class="voltar">⬅ Voltar</a>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+
+var map = L.map('map').setView([-23.667, -46.461], 13);
+
+// Camada alternativa ao OpenStreetMap
+L.tileLayer(
+'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+{
+    attribution: 'Tiles © Esri'
+}
+).addTo(map);
+
+// ETEC Mauá
+L.marker([-23.668,-46.457])
+.addTo(map)
+.bindPopup("<b>ETEC Mauá</b>");
+
+// FATEC Mauá
+L.marker([-23.668,-46.456])
+.addTo(map)
+.bindPopup("<b>FATEC Mauá</b>");
+
+// Prefeitura
+L.marker([-23.670,-46.462])
+.addTo(map)
+.bindPopup("<b>Prefeitura de Mauá</b>");
+
+// Meu Trabalho
+L.marker([-23.665,-46.455])
+.addTo(map)
+.bindPopup("<b>Meu Trabalho</b>");
+
+</script>
+
+</body>
+</html>

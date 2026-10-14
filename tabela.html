@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tabela de Alunos</title>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+
+<style>
+
+body{
+    background:#ffe4f2;
+    font-family:Arial, Helvetica, sans-serif;
+    margin:20px;
+}
+
+h1{
+    text-align:center;
+    color:#d63384;
+}
+
+.voltar{
+    display:inline-block;
+    background:#ff69b4;
+    color:white;
+    padding:10px 15px;
+    border-radius:10px;
+    text-decoration:none;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+.voltar:hover{
+    background:#d63384;
+}
+
+.container{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,.1);
+}
+
+table{
+    width:100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<a href="index.html" class="voltar">⬅ Voltar ao Menu</a>
+
+<h1>📋 Tabela de Alunos</h1>
+
+<div class="container">
+
+<table id="alunos" class="display">
+
+<thead>
+<tr>
+    <th>Nome</th>
+    <th>1º Bim</th>
+    <th>2º Bim</th>
+    <th>3º Bim</th>
+    <th>4º Bim</th>
+    <th>Média</th>
+    <th>Conceito</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr><td>Pedro</td><td>1.3</td><td>9.0</td><td>8.0</td><td>5.2</td><td>5.9</td><td>Aprovado</td></tr>
+<tr><td>João</td><td>3.0</td><td>7.4</td><td>4.0</td><td>9.5</td><td>6.0</td><td>Aprovado</td></tr>
+<tr><td>Carla</td><td>6.9</td><td>0.9</td><td>5.3</td><td>5.9</td><td>4.8</td><td>Reprovado</td></tr>
+<tr><td>Ana</td><td>0.5</td><td>0.9</td><td>7.7</td><td>3.2</td><td>3.1</td><td>Reprovado</td></tr>
+
+<tr><td>Cássio</td><td>10</td><td>9</td><td>10</td><td>9</td><td>9.5</td><td>Aprovado</td></tr>
+<tr><td>Alessandro</td><td>8</td><td>7</td><td>8</td><td>9</td><td>8.0</td><td>Aprovado</td></tr>
+<tr><td>Chicão</td><td>7</td><td>8</td><td>7</td><td>8</td><td>7.5</td><td>Aprovado</td></tr>
+<tr><td>Paulo André</td><td>6</td><td>7</td><td>8</td><td>7</td><td>7.0</td><td>Aprovado</td></tr>
+<tr><td>Fábio Santos</td><td>8</td><td>8</td><td>9</td><td>8</td><td>8.3</td><td>Aprovado</td></tr>
+<tr><td>Ralf</td><td>7</td><td>7</td><td>8</td><td>8</td><td>7.5</td><td>Aprovado</td></tr>
+<tr><td>Paulinho</td><td>9</td><td>8</td><td>9</td><td>10</td><td>9.0</td><td>Aprovado</td></tr>
+<tr><td>Danilo</td><td>9</td><td>9</td><td>8</td><td>9</td><td>8.8</td><td>Aprovado</td></tr>
+<tr><td>Douglas</td><td>6</td><td>6</td><td>7</td><td>7</td><td>6.5</td><td>Aprovado</td></tr>
+<tr><td>Jorge Henrique</td><td>8</td><td>7</td><td>8</td><td>8</td><td>7.8</td><td>Aprovado</td></tr>
+<tr><td>Emerson Sheik</td><td>10</td><td>8</td><td>9</td><td>10</td><td>9.3</td><td>Aprovado</td></tr>
+<tr><td>Guerrero</td><td>9</td><td>9</td><td>10</td><td>9</td><td>9.3</td><td>Aprovado</td></tr>
+<tr><td>Romarinho</td><td>7</td><td>8</td><td>8</td><td>7</td><td>7.5</td><td>Aprovado</td></tr>
+<tr><td>Wallace</td><td>6</td><td>6</td><td>5</td><td>7</td><td>6.0</td><td>Aprovado</td></tr>
+<tr><td>Martínez</td><td>5</td><td>6</td><td>5</td><td>7</td><td>5.8</td><td>Reprovado</td></tr>
+<tr><td>Edenílson</td><td>8</td><td>8</td><td>7</td><td>9</td><td>8.0</td><td>Aprovado</td></tr>
+<tr><td>Felipe</td><td>4</td><td>5</td><td>4</td><td>5</td><td>4.5</td><td>Reprovado</td></tr>
+<tr><td>Gil</td><td>8</td><td>9</td><td>8</td><td>8</td><td>8.3</td><td>Aprovado</td></tr>
+<tr><td>Liedson</td><td>5</td><td>6</td><td>5</td><td>6</td><td>5.5</td><td>Reprovado</td></tr>
+<tr><td>Willian Arão</td><td>8</td><td>7</td><td>8</td><td>8</td><td>7.8</td><td>Aprovado</td></tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+<script>
+$(document).ready(function () {
+    $('#alunos').DataTable({
+        language: {
+            url: 'https://cdn.datatables.net/plug-ins/1.13.7/i18n/pt-BR.json'
+        }
+    });
+});
+</script>
+
+</body>
+</html>
