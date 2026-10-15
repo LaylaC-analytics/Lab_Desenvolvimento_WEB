@@ -6,14 +6,13 @@
 
 <title>Mapa de Mauá</title>
 
-<link rel="stylesheet"
-href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
 <style>
 
 body{
     background:#ffe4f2;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
     padding:20px;
 }
 
@@ -23,11 +22,12 @@ h1{
 }
 
 .voltar{
+    display:inline-block;
     background:#ff69b4;
     color:white;
+    text-decoration:none;
     padding:10px 15px;
     border-radius:10px;
-    text-decoration:none;
     font-weight:bold;
 }
 
@@ -36,10 +36,10 @@ h1{
 }
 
 #map{
-    height:600px;
+    height:650px;
+    margin-top:20px;
     border:5px solid hotpink;
     border-radius:15px;
-    margin-top:20px;
 }
 
 </style>
@@ -50,7 +50,7 @@ h1{
 
 <h1>🗺️ Mapa de Mauá</h1>
 
-<a href="index.html" class="voltar">⬅ Voltar</a>
+<a href="index.html" class="voltar">⬅ Voltar ao Menu</a>
 
 <div id="map"></div>
 
@@ -58,35 +58,59 @@ h1{
 
 <script>
 
-var map = L.map('map').setView([-23.667, -46.461], 13);
+// Cria o mapa
+const map = L.map('map').setView([-23.667,-46.461],13);
 
-// Camada alternativa ao OpenStreetMap
+// Camada base
 L.tileLayer(
-'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
 {
-    attribution: 'Tiles © Esri'
+    maxZoom:19,
+    attribution:'© OpenStreetMap'
 }
 ).addTo(map);
 
 // ETEC Mauá
 L.marker([-23.668,-46.457])
 .addTo(map)
-.bindPopup("<b>ETEC Mauá</b>");
+.bindPopup('<b>ETEC Mauá</b>');
 
 // FATEC Mauá
 L.marker([-23.668,-46.456])
 .addTo(map)
-.bindPopup("<b>FATEC Mauá</b>");
+.bindPopup('<b>FATEC Mauá</b>');
 
-// Prefeitura
+// Prefeitura de Mauá
 L.marker([-23.670,-46.462])
 .addTo(map)
-.bindPopup("<b>Prefeitura de Mauá</b>");
+.bindPopup('<b>Prefeitura de Mauá</b>');
 
 // Meu Trabalho
 L.marker([-23.665,-46.455])
 .addTo(map)
-.bindPopup("<b>Meu Trabalho</b>");
+.bindPopup('<b>Meu Trabalho</b>');
+
+// Contorno do município
+fetch('maua.geojson')
+.then(response => response.json())
+.then(data => {
+
+    const limiteMunicipio = L.geoJSON(data,{
+        style:{
+            color:'#d63384',
+            weight:4,
+            fillColor:'#ff69b4',
+            fillOpacity:0.20
+        }
+    }).addTo(map);
+
+    // Ajusta o zoom ao contorno
+    map.fitBounds(limiteMunicipio.getBounds());
+
+})
+.catch(error=>{
+    console.log('Erro ao carregar maua.geojson', error);
+});
 
 </script>
 
